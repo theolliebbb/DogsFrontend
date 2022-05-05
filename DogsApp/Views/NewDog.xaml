@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DogsApp.Views.NewDog"
+    BackgroundColor="Black">
+    <ContentPage.Content>
+          
+        <ScrollView>
+        <StackLayout Padding="5">
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="10" FontFamily="Fonty" TextColor="White" Text="Dog Name" />
+            <Entry TextColor="GhostWhite" BackgroundColor="SlateGray"  PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  Placeholder="Band"  FontSize="Small" x:Name="DogName"/>
+            <Label  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="10" FontFamily="Fonty" TextColor="White"  Text="Age" />
+            <Picker SelectedItem="{Binding SelectedBreed}" ItemDisplayBinding="{Binding num}" TextColor="GhostWhite" BackgroundColor="SlateGray"   HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  FontSize="Small" x:Name="DogAge"/>
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="10" FontFamily="Fonty" TextColor="White" Text="Breed" />
+            <Picker ItemDisplayBinding="{Binding breed}" TextColor="GhostWhite" BackgroundColor="SlateGray" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"    FontSize="Small" x:Name="DogBreed"/>
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="10" FontFamily="Fonty" TextColor="White" Text="Temperament" />
+            <Picker ItemDisplayBinding="{Binding temp}" TextColor="GhostWhite"  BackgroundColor="SlateGray"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  FontSize="Small" x:Name="DogTemp"/>
+            <Image HeightRequest="200" WidthRequest="400" Source="imagePath" IsVisible="False" x:Name="ImageViewer"></Image>
+  <Button FontFamily="Fonty" Text="Upload Image"  HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="White" TextColor="Black" x:Name="Image"/>
+            <Button FontFamily="Fonty" Text="Save" HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="White" TextColor="Black" x:Name="saveBtn" Clicked="saveBtn_Clicked"/>
+            <Button FontFamily="Fonty" Text="Back"  HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="White" TextColor="Black" x:Name="backBtn" Clicked="backBtn_Clicked"/>
+
+        </StackLayout>
+            </ScrollView>
+                   
+    </ContentPage.Content>
+</ContentPage>

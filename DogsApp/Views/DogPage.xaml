@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Dogs.Models"
+    x:Class="DogsApp.Views.DogPage"
+    x:Name="DogPager">
+   
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+         
+
+       <StackLayout>
+           <Label x:Name="Welcome1" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="____________________________" FontSize="Small" />
+           <Label x:Name="Welcome" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="My Events" FontSize="Small" FontFamily="Fonty"/>
+           <Button x:Name="MakeDog" Text="Make a Dog!" Clicked="MakeDog_Clicked"/>
+        <Button x:Name="GetDog" Text="GETDog!" Clicked="GetDog_Clicked"/>
+           <StackLayout>
+    <ListView
+        x:Name="List"
+        BackgroundColor="Transparent"
+        CachingStrategy="RecycleElement"
+        HasUnevenRows="True"
+        IsPullToRefreshEnabled="False"
+        
+        
+        
+        RefreshControlColor="Red"
+        SelectionMode="None"
+        SeparatorVisibility="None"
+        >
+        
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:Dog">
+                
+                <ViewCell>
+              
+                    
+                    <ScrollView>
+                    
+                        <StackLayout Orientation="Vertical" Margin="50">
+                        <Image  HeightRequest="340" WidthRequest="550"   x:Name="Image" Source="{Binding image}"/>
+                              
+                           
+                        <Label
+                            FontFamily="Fonty"
+                                        x:Name="Bands"
+                                        FontSize="Large"
+                                        Text="{Binding name}"
+                            TextColor="White"
+                            BackgroundColor="Black"
+                            HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                            HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        x:Name="Dates"
+                                        FontFamily="Fonty"
+                                        FontSize="Large"
+                                        BackgroundColor="White"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        TextColor="Black"
+                                        Text="{Binding age}"
+                                        VerticalOptions="Center" />
+                                    <Label x:Name="Venues"
+
+                                            FontFamily="Fonty"
+                                        FontSize="Large"
+                                            BackgroundColor="White"
+                                            TextColor="Black"
+                                           
+                                        Text="{Binding breed}"
+                                        VerticalOptions="Center" />
+                            <Label x:Name="Temps"
+
+                                            FontFamily="Fonty"
+                                        FontSize="Large"
+                                            BackgroundColor="White"
+                                            TextColor="Black"
+                                           
+                                        Text="{Binding temperament}"
+                                        VerticalOptions="Center" />
+                 
+                                    <Button x:Name="Deletes"
+                                            FontFamily="Fonty"
+                                        FontSize="Large"
+                                         Command="{Binding Source={x:Reference DogPager}, Path=BindingContext.Deletes_Clicked}"
+                            CommandParameter="{Binding .}"
+                                            BackgroundColor="White"
+                                            TextColor="Black"
+                                            
+                                        Text="Delete"
+                                        VerticalOptions="Center" />
+                            
+                            <Label HorizontalOptions="Center" Text="____________________________" TextColor="White"/>
+                            
+                            </StackLayout>
+                       
+                   
+                        </ScrollView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+               </StackLayout>
+           </StackLayout>
+               
+</ContentPage>
